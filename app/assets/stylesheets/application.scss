@@ -1,3 +1,4 @@
+
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
@@ -8,6 +9,10 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+// Application requires indexes
+// Indexes link to actual css files
+
 
 // Your CSS partials
 @import "layouts/index";
