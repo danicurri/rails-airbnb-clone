@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :flats, through: :bookings
   has_many :bookings #user as customer can have many bookings
   has_many :flats # user as owner onws many flats
+
 end
