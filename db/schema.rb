@@ -10,15 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-
 ActiveRecord::Schema.define(version: 20171205104646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-
     t.integer  "total_price"
     t.date     "initial_date"
     t.integer  "number_nights"
@@ -31,7 +28,6 @@ ActiveRecord::Schema.define(version: 20171205104646) do
   end
 
   create_table "flats", force: :cascade do |t|
-
     t.string   "address"
     t.string   "description"
     t.string   "title"
