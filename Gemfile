@@ -19,6 +19,7 @@ gem 'simple_form'
 gem 'uglifier'
 
 gem 'cloudinary'
+gem 'faker'
 
 group :development, :test do
   gem 'pry-byebug'

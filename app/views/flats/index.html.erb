@@ -1,9 +1,23 @@
 <h1>Index flats</h1>
+<div class="container">
+  <div class="row">
 
-<% @flats.each do |flat| %>
-<p> <%= flat.description %></p>
-<p> <%= link_to "see the flat", flat_path(flat)%></p>
- <%  end %>
-<p><%= link_to "create a flat", new_flat_path(@flat)%></p>
+      <% @flats.each do |flat| %>
+        <%= link_to flat_path(flat) do %>
+          <div class="col-xs-4">
+            <div class="card" style="background-color: lightgrey;">
+              <div class="card-category"><%=  flat.price%> </div>
+              <div class="card-description">
+                <h2> <%=  flat.title%></h2>
+                <p> <%= flat.description %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+  </div>
+</div>
+<p><%= link_to "create a flat", new_flat_path(@flat), class: "btn btn-primary"%></p>
 
 
