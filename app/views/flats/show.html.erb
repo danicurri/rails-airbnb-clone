@@ -1,0 +1,14 @@
+<h1>Flat show</h1>
+
+<p><%= @flat.description %></p>
+<p><%= @flat.title %></p>
+<p><%= @flat.address %></p>
+<p><%= @flat.price %></p>
+
+<p><%= link_to "Edit this flat", edit_flat_path(@flat) %></p>
+<p> <%= link_to "Delete", flat_path(@flat),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %></p>
+<p> <%= link_to "Go to index", flats_path %></p>
+
+
