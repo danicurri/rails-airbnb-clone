@@ -1,0 +1,10 @@
+<h1>Edit a flat</h1>
+
+<p><%= simple_form_for @flat do |f| %></p>
+<p> <%= f.input :address %> </p>
+<p> <%= f.input :description %></p>
+<p><%= f.input :title %></p>
+<p><%= f.input :price %></p>
+ <p><%= f.submit "save", class: "btn btn-primary" %></p>
+<% end %>
+
