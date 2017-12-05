@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :flats, through: :bookings
-  has_many :bookings
-  has_many :flats # as owner
+  has_many :bookings #user as customer can have many bookings
+  has_many :flats # user as owner onws many flats
+
 end
