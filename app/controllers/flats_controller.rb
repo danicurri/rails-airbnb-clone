@@ -1,8 +1,8 @@
 class FlatsController < ApplicationController
 
-def index
-  @flats = Flat.all
-end
+  def index
+    @flats = Flat.all
+  end
 
   def new
     @flat = Flat.new
@@ -39,7 +39,7 @@ end
   private
 
   def flat_strong_params
-    params.require(:flat).permit(:description, :title, :address, :price)
+    params.require(:flat).permit(:description, :title, :address, :price, :photo, :photo_cache)
   end
 
 end

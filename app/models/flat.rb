@@ -5,4 +5,7 @@ class Flat < ApplicationRecord
 
   alias_attribute :owner, :user
   alias_attribute :guests, :users
+
+  mount_uploader :photo, PhotoUploader
+
 end
