@@ -10,6 +10,10 @@
     <a href="" class="navbar-wagon-item navbar-wagon-link">Host</a>
     <a href="" class="navbar-wagon-item navbar-wagon-link">Trips</a>
     <a href="" class="navbar-wagon-item navbar-wagon-link">Messages</a>
+    <% if !current_user %>
+      <%= link_to 'Login', new_user_session_path, class: "btn-login navbar-wagon-link navbar-wagon-item" %>
+      <%= link_to 'Sign Up', new_user_registration_path, class: "btn-login navbar-wagon-link navbar-wagon-item" %>
+    <% end %>
 
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
