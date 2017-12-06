@@ -14,11 +14,19 @@
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+        <%= render 'shared/navatar' %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Profile</a></li>
+          <li>
+            <a href="#">
+            <% if current_user %>
+              <%= current_user.email %>
+              <% else %>
+              <% "Log In" %>
+            <% end %>
+            </a>
+          </li>
           <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Log Out</a></li>
+          <%= render 'shared/sign_in_out' %>
         </ul>
       </div>
     </div>
