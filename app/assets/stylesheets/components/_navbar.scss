@@ -10,6 +10,14 @@
   justify-content: space-between;
 }
 
+.btn-login {
+  color: #000000;
+  &:hover {
+    color: #da552f;
+    text-decoration: none;
+  }
+}
+
 /* Logo */
 .navbar-wagon-brand img {
   height: 34px;
