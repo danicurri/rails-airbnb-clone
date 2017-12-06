@@ -1,14 +1,23 @@
 <h1>Flat show</h1>
 
-<p><%= @flat.description %></p>
-<p><%= @flat.title %></p>
-<p><%= @flat.address %></p>
-<p><%= @flat.price %></p>
-
-<p><%= link_to "Edit this flat", edit_flat_path(@flat) %></p>
-<p> <%= link_to "Delete", flat_path(@flat),
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-offset-4 col-md-4 text-center">
+      <p><%= @flat.description %></p>
+      <p><%= @flat.title %></p>
+      <p><%= @flat.address %></p>
+      <p><%= @flat.price %></p>
+      <p><%= link_to "Edit this flat", edit_flat_path(@flat), class: "btn btn-primary" %></p>
+      <p> <%= link_to "Delete", flat_path(@flat), class: "btn btn-primary",
       method: :delete,
       data: { confirm: "Are you sure?" } %></p>
-<p> <%= link_to "Go to index", flats_path %></p>
+      <p> <%= link_to "Go to index", flats_path, class: "btn btn-primary" %></p>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 
