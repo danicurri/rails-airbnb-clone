@@ -1,16 +1,17 @@
 class FlatsController < ApplicationController
 
-def index
-  #@flats = Flat.all
+  def index
+    @flats = Flat.all
 
   @flats = Flat.where.not(latitude: nil, longitude: nil)
 
-  @markers = Gmaps4rails.build_markers(@flats) do |flat, marker|
-    marker.lat flat.latitude
-    marker.lng flat.longitude
-    # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    @markers = Gmaps4rails.build_markers(@flats) do |flat, marker|
+      marker.lat flat.latitude
+      marker.lng flat.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
   end
-end
+
 
   def new
     @flat = Flat.new
@@ -50,7 +51,7 @@ end
   private
 
   def flat_strong_params
-    params.require(:flat).permit(:description, :title, :address, :price)
+    params.require(:flat).permit(:description, :title, :address, :price, :photo, :photo_cache)
   end
 
 end
