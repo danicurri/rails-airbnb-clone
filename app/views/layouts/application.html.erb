@@ -13,10 +13,16 @@
 
   <%= render "shared/navbar"  %>
   <% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
+    <div class="alert alert-info alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <%= notice %>
+    </div>
   <% end %>
   <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
+    <div class="alert alert-warning alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <%= alert %>
+    </div>
   <% end %>
   <%= yield %>
   <%= javascript_include_tag 'application' %>
