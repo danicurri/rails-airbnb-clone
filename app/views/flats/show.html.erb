@@ -1,4 +1,5 @@
 <h1>Flat show</h1>
+<%= cl_image_tag @flat.photo, height: 300, width: 400, crop: :fill %>
 
 <div class="container">
   <div class="row">
@@ -20,4 +21,9 @@
 
 
 
-
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    const coord = <%= raw @flat_coordinates.to_json %>;
+    alert('Flat coordinates are ' + coord.lat + ', ' + coord.lng);
+  <% end %>
+<% end %>
