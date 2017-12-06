@@ -12,4 +12,9 @@
       data: { confirm: "Are you sure?" } %></p>
 <p> <%= link_to "Go to index", flats_path %></p>
 
-
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    const coord = <%= raw @flat_coordinates.to_json %>;
+    alert('Flat coordinates are ' + coord.lat + ', ' + coord.lng);
+  <% end %>
+<% end %>
