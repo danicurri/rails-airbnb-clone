@@ -25,6 +25,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 
+gem 'omniauth-facebook'
 gem 'cloudinary'
 gem 'faker'
 gem 'carrierwave', '~> 0.11.2'
