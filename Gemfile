@@ -9,7 +9,6 @@ gem 'rails', '5.0.6'
 gem 'redis'
 gem 'devise'
 
-gem "simple_form"
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
@@ -20,6 +19,8 @@ gem 'uglifier'
 
 gem 'cloudinary'
 gem 'faker'
+gem 'random-location'
+
 
 group :development, :test do
   gem 'pry-byebug'

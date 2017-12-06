@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+Flat.destroy_all
+User.destroy_all
+
 puts "Creating 20 fake flats"
 20.times do
   user = User.new(
