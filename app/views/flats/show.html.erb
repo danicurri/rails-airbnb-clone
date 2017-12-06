@@ -12,12 +12,12 @@
       <p> <%= link_to "Delete", flat_path(@flat), class: "btn btn-primary",
       method: :delete,
       data: { confirm: "Are you sure?" } %></p>
+      <p> <%= link_to "Book", new_flat_booking_path(@flat) %></p>
+
       <p> <%= link_to "Go to index", flats_path, class: "btn btn-primary" %></p>
     </div>
   </div>
 </div>
-
-
 
 
 
