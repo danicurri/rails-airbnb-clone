@@ -5,12 +5,14 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-offset-4 col-md-4 text-center">
       <%= simple_form_for @flat do |f| %>
-      <%= f.input :address %>
-      <%= f.input :description %>
-      <%= f.input :title %>
-      <%= f.input :price %>
+      <%= f.input :title, placeholder: 'Modernista Two Bed' %>
+      <%= f.input :address, placeholder: 'Street, City'  %>
+      <%= f.input :description, placeholder: '2 bed family home'  %>
+      <%= f.input :price, placeholder: '120€'  %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
       <%= f.submit "add a flat", class: "btn btn-primary" %>
-    <% end %>
+      <% end %>
     </div>
   </div>
 </div>
