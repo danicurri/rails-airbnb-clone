@@ -12,6 +12,6 @@ Rails.application.routes.draw do
       end
     end
   end
-  get 'bookings', to: 'bookings#index'
+  get 'my-bookings', to: 'bookings#my_bookings'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
