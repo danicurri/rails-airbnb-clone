@@ -1,4 +1,4 @@
-<h1>All Your Bookings</h1>
+<h1>All Your Bookings:</h1>
 
 <div class="container">
 
@@ -27,18 +27,26 @@
   </div>
 </div>
 
-<p>************************************************</p>
+<p>******************************************************************************************************************************************************</p>
 
-<h1>All your properties</h1>
+<h1>All your properties:</h1>
 
-<% @my_flats.each do |myflat| %>
-    <%= myflat.title %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-offset-4 col-md-4 text-center">
+
+      <% @my_flats.each do |myflat| %>
+      <p class="my-props-p" > <%= myflat.title %></p>
       <% if myflat.bookings.length == 0 %>
       <% else %>
-        <% myflat.bookings.each do |booking| %>
-         <%=  booking.initial_date  %>
-         <%=  booking.number_nights  %>
-        <% end %>
+      <% myflat.bookings.each do |booking| %>
+      <p class="my-props- p"> <%=  booking.initial_date  %> </p>
+      <p class="my-props- p"><%=  booking.number_nights  %></p>
+      <% end %>
       <% end %>
       <p>****************</p>
-<% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

@@ -24,7 +24,7 @@ before_action :set_booking, only: [ :show, :destroy, :approve, :decline, :cancel
     @booking.user = current_user #current_user
 
     if @booking.save
-      redirect_to flat_bookings_path(@flat)
+      redirect_to my_bookings_path(@flat)
     else
       render 'flats/show'
     end
@@ -46,7 +46,7 @@ before_action :set_booking, only: [ :show, :destroy, :approve, :decline, :cancel
   def destroy
     set_booking
     @booking.destroy
-    redirect_to root_path
+    redirect_to flats_path
   end
 
   def approve
