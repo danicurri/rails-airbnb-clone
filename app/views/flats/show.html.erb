@@ -2,22 +2,38 @@
 <% if @flat.photo.nil? %>
 <% else  %>
   <%= cl_image_tag @flat.photo, height: 300, width: 400, crop: :fill %>
-<% end %>
+  <% end %>
 
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-offset-4 col-md-4 text-center">
-      <p><%= @flat.description %></p>
-      <p><%= @flat.title %></p>
-      <p><%= @flat.address %></p>
-      <p><%= @flat.price %></p>
-      <p><%= link_to "Edit this flat", edit_flat_path(@flat), class: "btn btn-primary" %></p>
+      <p class="flat-show-big-p"><%= @flat.description %></p>
+      <p class="flat-show-big-p"><%= @flat.title %></p>
+      <p class="flat-show-big-p"><%= @flat.address %></p>
+      <p class="flat-show-big-p"><%= @flat.price %></p>
+      <p class="flat-show-big-p"><%= link_to "Edit this flat", edit_flat_path(@flat), class: "btn btn-primary" %></p>
       <p> <%= link_to "Delete", flat_path(@flat), class: "btn btn-primary",
       method: :delete,
       data: { confirm: "Are you sure?" } %></p>
-      <p> <%= link_to "Book", new_flat_booking_path(@flat) %></p>
 
       <p> <%= link_to "Go to index", flats_path, class: "btn btn-primary" %></p>
+    </div>
+  </div>
+</div>
+
+<!-- Booking creation form-->
+<div class="container">
+  <div class="row">
+    <div <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-offset-4 col-md-4 text-center">
+      <h1>Book this flat</h1>
+        <%= simple_form_for [@flat, @booking] do |f| %>
+        <%= f.input :initial_date %>
+        <%= f.input :number_nights %>
+        <!-- <%= @booking.total_price %> -->
+        <%= f.submit "booking request", class: "btn btn-primary" %>
+        <% end %>
+        <p></p>
+        <p> <%= link_to "Back to All Your Bookings", flat_bookings_path(@flat), class: "btn btn-primary" %></p>
     </div>
   </div>
 </div>
@@ -27,6 +43,6 @@
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
     const coord = <%= raw @flat_coordinates.to_json %>;
-    alert('Flat coordinates are ' + coord.lat + ', ' + coord.lng);
+    <!-- alert('Flat coordinates are ' + coord.lat + ', ' + coord.lng); -->
   <% end %>
 <% end %>
