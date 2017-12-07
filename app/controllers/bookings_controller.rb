@@ -40,6 +40,12 @@ before_action :set_flat
     redirect_to root_path
   end
 
+  def approve
+    set_booking
+    @booking.status = "approved"
+    redirect_to bookings_path
+  end
+
   private
 
     def booking_params
