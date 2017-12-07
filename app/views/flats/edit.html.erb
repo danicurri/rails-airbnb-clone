@@ -8,6 +8,8 @@
       <p> <%= f.input :description %></p>
       <p><%= f.input :title %></p>
       <p><%= f.input :price %></p>
+      <p><%= f.input :photo %></p>
+      <p><%= f.input :photo_cache, as: :hidden %></p>
        <p><%= f.submit "save", class: "btn btn-primary" %></p>
       <% end %>
     </div>
