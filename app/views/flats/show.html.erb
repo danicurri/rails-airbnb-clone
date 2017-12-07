@@ -31,9 +31,11 @@
         <%= f.input :number_nights %>
         <!-- <%= @booking.total_price %> -->
         <%= f.submit "booking request", class: "btn btn-primary" %>
+        <p></p>
+        <br>
+        <p><%=  link_to "All Your Bookings", my_bookings_path, class: "btn-primary" %> </p>
         <% end %>
         <p></p>
-        <p> <%= link_to "Back to All Your Bookings", flat_bookings_path(@flat), class: "btn btn-primary" %></p>
     </div>
   </div>
 </div>
