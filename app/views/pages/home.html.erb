@@ -1,10 +1,18 @@
-<h1>Home</h1>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-offset-4 col-md-4 text-center">
-      <p> <%=link_to "index page", flats_path , class: "btn btn-primary" %></p>
-    </div>
+<script type="text/javascript">
+	$("#button").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#myDiv").offset().top - 150 /*(150) is height to leave from top*/
+    }, 2000);
+});
+</script>
+
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
+  <div class="banner-content">
+    <h1>AirBnb</h1>
+    <p>Escape into luxury</p>
+    <!-- <a class="btn btn-primary btn-lg" id="button">Let's go!</a> -->
+    <%= link_to "Let's Go", flats_path, class: "btn btn-primary btn-lg" %>
   </div>
 </div>
 

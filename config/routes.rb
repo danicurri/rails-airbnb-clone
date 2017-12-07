@@ -1,19 +1,5 @@
 Rails.application.routes.draw do
-  # get 'bookings/index'
-
-  # get 'bookings/new'
-
-  # get 'bookings/create'
-
-  # get 'bookings/edit'
-
-  # get 'bookings/show'
-
-  # get 'bookings/update'
-
-  # get 'bookings/destroy'
-
-  # get 'flats/new'
+  resources :profiles
 
   devise_for :users, controllers: { sessions: 'users/sessions' }
   root to: 'pages#home'
