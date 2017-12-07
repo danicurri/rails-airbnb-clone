@@ -10,8 +10,8 @@
     <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-offset-4 col-md-4 text-center">
 
       <% @my_bookings.each do |booking| %>
-          <p><%= booking.initial_date %></p>
-          <p><%= booking.number_nights %></p>
+          <p class="bookings-index-p">Starting date:<%= booking.initial_date %></p>
+          <p class="bookings-index-p">Number of Nights:<%= booking.number_nights %></p>
         <!-- Delete a booking  -->
           <% flat = booking.flat %>
           <p> <%= link_to "Delete", flat_booking_path(flat, booking),
