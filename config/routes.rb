@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  resources :profiles
+
 
   devise_for :users, controllers: { sessions: 'users/sessions' }
+  resources :users do
+  	resources :profiles, only: [ :show, :edit, :update, :destroy ]
+  end
   root to: 'pages#home'
   resources :flats, only: [ :new, :create, :show, :edit, :update, :destroy, :index] do
     resources :bookings, only: [ :new, :create, :destroy, :index] do
