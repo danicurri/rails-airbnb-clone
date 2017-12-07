@@ -19,12 +19,13 @@ class FlatsController < ApplicationController
 
   def create
     @flat = Flat.new(flat_strong_params)
-    @flat.owner = User.first
+    @flat.owner = current_user
     @flat.save
     redirect_to flat_path(@flat)
   end
 
   def show
+    @booking = Booking.new
     @flat = Flat.find(params[:id])
     @alert_message = "You are viewing #{@flat.title}"
     @flat_coordinates = { lat: @flat.latitude, lng: @flat.longitude }

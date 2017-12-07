@@ -1,7 +1,15 @@
 class BookingsController < ApplicationController
-before_action :set_flat
+before_action :set_flat, except: [ :my_bookings]
+before_action :set_booking, only: [ :show, :destroy, :approve, :decline, :cancel]
+
   def index
     @bookings = Booking.all
+    @my_bookings = current_user.bookings
+  end
+
+  def my_bookings
+    @my_bookings = current_user.bookings#renters bookings
+    @my_flats = current_user.flats#owners flats
   end
 
   def new
@@ -13,10 +21,10 @@ before_action :set_flat
     @booking = Booking.new(booking_params)
     @booking.flat = @flat
     @booking.total_price = @flat.price * @booking.number_nights
-    @booking.user = User.first #current_user
-    # raise
+    @booking.user = current_user #current_user
+
     if @booking.save
-      redirect_to flat_booking_path(@flat, @booking)
+      redirect_to flat_bookings_path(@flat)
     else
       render 'flats/show'
     end
@@ -36,9 +44,29 @@ before_action :set_flat
   end
 
   def destroy
+    set_booking
     @booking.destroy
     redirect_to root_path
   end
+
+  def approve
+    set_booking
+    @booking.status = "approved"
+    redirect_to bookings_path
+  end
+
+  def decline
+    set_booking
+    @booking.status = "declined"
+    redirect_to bookings_path
+  end
+
+    def cancel
+    set_booking
+    @booking.status = "cancelled"
+    redirect_to bookings_path
+  end
+
 
   private
 
