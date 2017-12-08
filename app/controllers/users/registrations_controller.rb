@@ -2,17 +2,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
-  def create
-    super do
-      User.create(registration_id: resource.id)
-    end
-  end
+
 
   protected
 
-  def after_sign_up_path_for(resource)
-    edit_user_path(resource.user)
-  end
+    def after_sign_up_path_for(resource)
+      super
+      edit_user_profile_path(resource, resource.profile)
+    end
+
   # GET /resource/sign_up
   # def new
   #   super

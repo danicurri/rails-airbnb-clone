@@ -1,15 +1,51 @@
 .btn-primary {
-  color: white;
-  border: 1px solid #999999;
+  color: #ffffff;
+  background: #FF5A5F;
+  // border: 1px solid #999999;
   padding: 10px 15px;
-  border-radius: 50px;
+  border-radius: 4px;
   font-weight: lighter;
+  border-color: #FFFFFF;
 }
 .btn-primary:hover {
+  text-decoration: none;
+  color: #f2f2f2;
+  background: #f95e63;
+  border: 1px solid #ededed;
+}
+
+.btn-secondary {
+  color: #484848;
+  background: white;
+  padding: 3px 7px;
+  font-weight: lighter;
+  border-radius: 4px;
+      padding-right: 24px !important;
+    padding-left: 24px ;
+}
+
+.btn-secondary:hover {
+  opacity: 0.8;
+  text-decoration: none;
+   color: #484848;
+  background: white;
+
+}
+
+.btn-submit {
+  color: #ffffff;
+  background: #FF5A5F;
+  // border: 1px solid #999999;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: lighter;
+}
+.btn-submit:hover {
   opacity: 0.9;
   text-decoration: none;
   color: #f2f2f2;
-  border: 1px solid #bfbfbf;
+  background: #FF5A5F
+  // border: 1px solid #bfbfbf;
 }
 
 .btn-primary-sm {
