@@ -1,3 +1,5 @@
+
+<div id="wrapper">
 <div class="container">
 <h1>Flat show</h1>
 <% if @flat.photo.nil? %>
@@ -6,7 +8,7 @@
   <% end %>
 
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-offset-4 col-md-4 text-center">
+    <div class="col-xs-12 col-md-4 text-center">
       <p class="flat-show-big-p"><%= @flat.description %></p>
       <p class="flat-show-big-p"><%= @flat.title %></p>
       <p class="flat-show-big-p"><%= @flat.address %></p>
@@ -20,11 +22,13 @@
     </div>
   </div>
 </div>
+</div>
 
+<div id="wrapper">
 <!-- Booking creation form-->
 <div class="container">
   <div class="row">
-    <div <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-offset-4 col-md-4 text-center">
+    <div class="col-xs-12 col-md-4 text-center">
       <h1>Book this flat</h1>
         <%= simple_form_for [@flat, @booking] do |f| %>
         <%= f.input :initial_date %>
@@ -38,6 +42,7 @@
         <p></p>
     </div>
   </div>
+</div>
 </div>
 
 
