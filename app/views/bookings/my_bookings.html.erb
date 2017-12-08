@@ -1,49 +1,54 @@
 
 <div class="container">
+  <h1>My Trips:</h1>
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-offset-4 col-md-4 text-center">
+    <p>
+      <%current_user %>
+    </p>
+    <% @my_bookings.each do |booking| %>
+    <div class="col-xs-12 col-md-4 text-center">
+    <p>
+      <%= booking.flat.title %>
+    </p>
+      <div class="my-trips-pic">
+      <%= cl_image_tag booking.flat.photo, height: 200, width: 300, crop: :fill %>
+      </div>
 
-      <h1>My bookings:</h1>
-      <p>
-        <%current_user %>
-      </p>
-      <% @my_bookings.each do |booking| %>
-      <h2>
-        <%= booking.flat.title %>
-      </h2>
       <p class="bookings-index-p">Starting date:<%= booking.initial_date %></p>
       <p class="bookings-index-p">Number of Nights:<%= booking.number_nights %></p>
+      <p class="bookings-index-p">Total Price:<%= booking.total_price %> </p>
+      <br>
       <!-- Delete a booking  -->
       <% flat = booking.flat %>
       <p> <%= link_to "delete", flat_booking_path(flat, booking),
       method: :delete,
       data: { confirm: "Are you sure?" },
-      class: "btn btn-primary" %>
-      </p>
+      class: "btn btn-primary" %></p>
+      </div>
       <% end %>
-
-    </div>
   </div>
-
+</div>
 
 
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-offset-4 col-md-4 text-center">
-
-<h1>My properties:</h1>
-      <% @my_flats.each do |myflat| %>
-      <p class="my-props-p" > <%= myflat.title %></p>
-      <% if myflat.bookings.length == 0 %>
-      <% else %>
-      <% myflat.bookings.each do |booking| %>
-      <p class="my-props-p"> <%=  booking.initial_date  %> </p>
-      <p class="my-props-p"><%=  booking.number_nights  %></p>
-      <p class="my-props-p"><%=  booking.status  %></p>
-      <% end %>
-      <% end %>
-      <p>****************</p>
-
-<% end %>
+    <h1>My properties:</h1>
+    <div class="row">
+        <% @my_flats.each do |myflat| %>
+      <div class="col-xs-12 col-sm-4 text-center">
+            <p class="my-props-p" > <%= myflat.title %></p>
+            <!-- <div class="myprops-pics"> -->
+              <%= cl_image_tag myflat.photo, height: 200, width: 300, crop: :fill %>
+              <% if myflat.bookings.length == 0 %>
+                <% else %>
+                  <% myflat.bookings.each do |booking| %>
+                  <p class="my-props-p"> <%=  booking.initial_date  %> </p>
+                  <p class="my-props-p"><%=  booking.number_nights  %></p>
+                  <p class="my-props-p"><%=  booking.total_price  %></p>
+            <% end %>
+        <% end %>
+          <!-- </div> -->
+      </div>
+        <% end %>
+  </div>
 </div>
 
