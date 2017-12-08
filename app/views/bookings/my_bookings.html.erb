@@ -20,7 +20,7 @@
       <br>
       <!-- Delete a booking  -->
       <% flat = booking.flat %>
-      <p> <%= link_to "Delete", flat_booking_path(flat, booking),
+      <p> <%= link_to "delete", flat_booking_path(flat, booking),
       method: :delete,
       data: { confirm: "Are you sure?" },
       class: "btn btn-primary" %></p>

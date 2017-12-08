@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-before_action :set_flat, except: [ :my_bookings]
+before_action :set_flat, except: [ :my_bookings, :requests]
 before_action :set_booking, only: [ :show, :destroy, :approve, :decline, :cancel]
 
   def index
@@ -8,6 +8,11 @@ before_action :set_booking, only: [ :show, :destroy, :approve, :decline, :cancel
   end
 
   def my_bookings
+    @my_bookings = current_user.bookings#renters bookings
+    @my_flats = current_user.flats#owners flats
+  end
+
+  def requests
     @my_bookings = current_user.bookings#renters bookings
     @my_flats = current_user.flats#owners flats
   end
@@ -52,19 +57,22 @@ before_action :set_booking, only: [ :show, :destroy, :approve, :decline, :cancel
   def approve
     set_booking
     @booking.status = "approved"
-    redirect_to bookings_path
+    @booking.save
+    redirect_to requests_path
   end
 
   def decline
     set_booking
     @booking.status = "declined"
-    redirect_to bookings_path
+    @booking.save
+    redirect_to requests_path
   end
 
     def cancel
     set_booking
     @booking.status = "cancelled"
-    redirect_to bookings_path
+    @booking.save
+    redirect_to requests_path
   end
 
 
