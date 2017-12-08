@@ -49,6 +49,14 @@ class FlatsController < ApplicationController
     redirect_to root_path
   end
 
+  def index
+  @flats = if params[:loaction]
+    Flat.where('name LIKE ?', "%#{params[:location]}%")
+  else
+    Flat.all
+  end
+end
+
   private
 
   def flat_strong_params

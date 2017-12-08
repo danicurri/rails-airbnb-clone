@@ -11,10 +11,9 @@
   <div class="banner-content">
     <h1>Book a flat</h1>
     <p>Escape into luxury</p>
-    <!-- <a class="btn btn-primary btn-lg" id="button">Let's go!</a> -->
     <%= form_tag(flats_path, method: :get) do %>
-    <%= text_field_tag :term %>
-    <%= submit_tag 'Search', class: "btn-secondary" %> <br>
+    <%= text_field_tag :location, params[:location], class: "input-location" %>
+    <%= submit_tag 'Search', name: nil, class: "btn-secondary" %> <br>
     <br>
     <%= link_to "Browse", flats_path, class: "btn-primary btn-lg" %>
     <% end %>
