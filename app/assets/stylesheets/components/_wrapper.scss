@@ -1,0 +1,13 @@
+.wrapper {
+  display: flex;
+}
+
+.wrapper .row {
+  flex: 0 0 70%;
+}
+
+.wrapper #map {
+  position: sticky !important;
+  top: 0 !important;
+  flex: 0 0 30%;
+}
