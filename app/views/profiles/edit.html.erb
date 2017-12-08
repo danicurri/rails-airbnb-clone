@@ -1,5 +1,9 @@
+<div class="container">
 <h1>Editing Profile</h1>
 
 <%= render 'form', profile: @profile, current_user: current_user %>
+     <%= cl_image_tag @profile.photo, class: "avatar-square" if @profile.photo? %>
 
 
+
+</div>
