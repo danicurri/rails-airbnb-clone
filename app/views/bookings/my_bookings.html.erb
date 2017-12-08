@@ -15,10 +15,11 @@
       <p class="bookings-index-p">Number of Nights:<%= booking.number_nights %></p>
       <!-- Delete a booking  -->
       <% flat = booking.flat %>
-      <p> <%= link_to "Delete", flat_booking_path(flat, booking),
+      <p> <%= link_to "delete", flat_booking_path(flat, booking),
       method: :delete,
       data: { confirm: "Are you sure?" },
-      class: "btn btn-primary" %></p>
+      class: "btn btn-primary" %>
+      </p>
       <% end %>
 
     </div>
@@ -36,8 +37,9 @@
       <% if myflat.bookings.length == 0 %>
       <% else %>
       <% myflat.bookings.each do |booking| %>
-      <p class="my-props- p"> <%=  booking.initial_date  %> </p>
-      <p class="my-props- p"><%=  booking.number_nights  %></p>
+      <p class="my-props-p"> <%=  booking.initial_date  %> </p>
+      <p class="my-props-p"><%=  booking.number_nights  %></p>
+      <p class="my-props-p"><%=  booking.status  %></p>
       <% end %>
       <% end %>
       <p>****************</p>
