@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       end
     end
   end
+  get 'requests', to: 'bookings#requests'
   get 'my-bookings', to: 'bookings#my_bookings'
   resources :dashboard
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

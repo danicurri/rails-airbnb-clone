@@ -1,0 +1,43 @@
+      <div class="container">
+            <h1 style="text-align: center">My requests:</h1>
+        <div class="row">
+              <% @my_bookings.each do |booking| %>
+              <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+                <div class="message">
+                  <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+                  <div class="message-name">
+                    <h3>Flat: <%= booking.flat.title %></h3>
+                    <h3>Guest: <%= current_user.name %> </h3>
+                    <p>Starting date: <%= booking.initial_date %></p>
+                    <p>Number of Nights: <%= booking.number_nights %></p>
+                  </div>
+                  <div class="message-body">
+                    <p><strong>I am not sure yet!</strong></p>
+                    <p>
+                      I am not sure yet! I might be in Shanghai at this moment... Can I tell you later?
+                    </p>
+                  </div>
+                  <div class="message-status">
+                    <p class="status pending"><%= booking.status %></p>
+                    <p class="price"> €<%= booking.total_price %></p>
+                  </div>
+                  <% flat = booking.flat %>
+                  </div>
+              </div>
+              <p>
+                <div class="3buttons">
+                    <p> <%= link_to "Accept", approve_flat_booking_path(flat, booking),
+                    method: :patch,
+                    class: "btn btn-primary-sm" %>
+                    <%= link_to "Decline", decline_flat_booking_path(flat, booking),
+                    method: :patch,
+                    class: "btn btn-primary-sm" %>
+                    <%= link_to "Cancel", cancel_flat_booking_path(flat, booking),
+                    method: :patch,
+                    class: "btn btn-primary-sm" %>
+                    </p>
+                </div>
+            </p>
+            <% end %>
+          </div>
+      </div>
