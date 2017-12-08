@@ -4,7 +4,7 @@
 <h1>Flat show</h1>
 <% if @flat.photo.nil? %>
 <% else  %>
-  <%= cl_image_tag @flat.photo, height: 300, width: 400, crop: :fill %>
+  <%= cl_image_tag @flat.photo, height: 300, width: 400, crop: :fill, class: "center-img" %>
   <% end %>
 
   <div class="row">
