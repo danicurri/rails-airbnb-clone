@@ -19,11 +19,40 @@
   border-radius: 20px;
   font-weight: lighter;
   font-size: 12px;
-  background-color: #408ED1;
+  // background-color: #408ED1;
 }
+.btn-green {
+  background-color: green;
+}
+
+.btn-red {
+  background-color: red;
+}
+
+.btn-black {
+  background-color: black;
+}
+
+.st-msg-green {
+  color: green;
+}
+
+.st-msg-red {
+  color: red;
+}
+
+.st-msg-black {
+  color: black;
+}
+
 .btn-primary-sm:hover {
   opacity: 0.9;
   text-decoration: none;
   color: #f2f2f2;
   border: 1px solid #bfbfbf;
+}
+
+.three_buttons {
+  text-align: right;
+  margin-right: 75px;
 }
