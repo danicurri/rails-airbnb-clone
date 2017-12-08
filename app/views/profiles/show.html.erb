@@ -1,44 +1,44 @@
-  <div class="card"
-  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-  url('<%= cl_image_path @profile.photo if @profile.photo? %>')">
-</div>
 <div class="container">
+  <div class="col-xs-12 col-sm-6 col-md-4">
+    <div class="profile-user-wrapper">
+     <%= cl_image_tag @profile.photo, class: "avatar-large" if @profile.photo? %>
 
-  <p id="notice"><%= notice %></p>
+      <p id="notice"><%= notice %></p>
 
-  <p>
-    <strong>Name:</strong>
-    <%= @profile.name %>
-  </p>
+      <p>
+        <strong>Name:</strong>
+        <%= @profile.name %>
+      </p>
 
-  <p>
-    <strong>Gender:</strong>
-    <%= @profile.gender %>
-  </p>
+      <p>
+        <strong>Gender:</strong>
+        <%= @profile.gender %>
+      </p>
 
-  <p>
-    <strong>Birthday:</strong>
-    <%= @profile.birthday %>
-  </p>
+      <p>
+        <strong>Birthday:</strong>
+        <%= @profile.birthday %>
+      </p>
 
-  <p>
-    <strong>Phone:</strong>
-    <%= @profile.phone %>
-  </p>
+      <p>
+        <strong>Phone:</strong>
+        <%= @profile.phone %>
+      </p>
 
-  <p>
-    <strong>Location:</strong>
-    <%= @profile.location %>
-  </p>
+      <p>
+        <strong>Location:</strong>
+        <%= @profile.location %>
+      </p>
 
-  <p>
-    <strong>Bio:</strong>
-    <%= @profile.bio %>
-  </p>
+      <p>
+        <strong>Bio:</strong>
+        <%= @profile.bio %>
+      </p>
 
 
 
-  <%= link_to 'Edit', edit_user_profile_path(current_user, @profile) %>
-
+    <%= link_to 'Edit', edit_user_profile_path(current_user, @profile) %>
+    </div>
+  </div>
 </div>
 
