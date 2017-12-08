@@ -44,9 +44,7 @@
                   <p class="my-props-p">Start date: <%=  booking.initial_date  %> </p>
                   <p class="my-props-p">Number of nights: <%=  booking.number_nights  %></p>
                   <p class="my-props-p">Total price: <%=  booking.total_price  %></p>
-                  <% if booking.status == "cancelled" %>
-                  <p class="my-props-p st-msg-black">Status booking: <%=  booking.status  %></p>
-                  <% end %>
+                  <p class="my-props-p">Status booking: <%=  booking.status  %></p>
             <% end %>
         <% end %>
           <!-- </div> -->
