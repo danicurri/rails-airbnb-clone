@@ -1,6 +1,6 @@
 
 <div class="container">
-  <h1>My Trips:</h1>
+  <h1 style="text-align: center">My Trips:</h1>
   <div class="row">
     <p>
       <%current_user %>
@@ -32,7 +32,7 @@
 
 
 <div class="container">
-    <h1>My properties:</h1>
+    <h1 style="text-align: center">My properties:</h1>
     <div class="row">
         <% @my_flats.each do |myflat| %>
       <div class="col-xs-12 col-sm-4 text-center">
@@ -42,9 +42,12 @@
               <% if myflat.bookings.length == 0 %>
                 <% else %>
                   <% myflat.bookings.each do |booking| %>
-                  <p class="my-props-p"> <%=  booking.initial_date  %> </p>
-                  <p class="my-props-p"><%=  booking.number_nights  %></p>
-                  <p class="my-props-p"><%=  booking.total_price  %></p>
+                  <p class="my-props-p">Start date: <%=  booking.initial_date  %> </p>
+                  <p class="my-props-p">Number of nights: <%=  booking.number_nights  %></p>
+                  <p class="my-props-p">Total price: <%=  booking.total_price  %></p>
+                  <% if booking.status == "cancelled" %>
+                  <p class="my-props-p st-msg-black">Status booking: <%=  booking.status  %></p>
+                  <% end %>
             <% end %>
         <% end %>
           <!-- </div> -->

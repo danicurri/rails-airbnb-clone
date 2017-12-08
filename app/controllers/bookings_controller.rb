@@ -8,12 +8,14 @@ before_action :set_booking, only: [ :show, :destroy, :approve, :decline, :cancel
   end
 
   def my_bookings
-    @my_bookings = current_user.bookings#renters bookings
+    @my_bookings = current_user.bookings
+    #renters bookings
     @my_flats = current_user.flats#owners flats
   end
 
   def requests
-    @my_bookings = current_user.bookings#renters bookings
+    @my_bookings = current_user.bookings.order(:id)#renters bookings
+
     @my_flats = current_user.flats#owners flats
   end
 

@@ -4,7 +4,7 @@
               <% @my_bookings.each do |booking| %>
               <div class="col-xs-12 col-sm-10 col-sm-offset-1">
                 <div class="message">
-                  <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+                <img class="avatar-large" src="<%= cl_image_path current_user.profile.photo if current_user.profile.photo? %>">
                   <div class="message-name">
                     <h3>Flat: <%= booking.flat.title %></h3>
                     <h3>Guest: <%= current_user.name %> </h3>
@@ -18,24 +18,35 @@
                     </p>
                   </div>
                   <div class="message-status">
-                    <p class="status pending"><%= booking.status %></p>
+                    <% if booking.status == "pending" %>
+                      <p class="status pending"><%= booking.status %></p>
+                    <% end %>
+                    <% if booking.status == "approved" %>
+                      <p class="status st-msg-green"><%= booking.status %></p>
+                    <% end %>
+                    <% if booking.status == "declined" %>
+                      <p class="status st-msg-red"><%= booking.status %></p>
+                    <% end %>
+                     <% if booking.status == "cancelled" %>
+                        <p class="status st-msg-black"><%= booking.status %></p>
+                      <% end %>
                     <p class="price"> €<%= booking.total_price %></p>
                   </div>
                   <% flat = booking.flat %>
                   </div>
               </div>
-              <p>
-                <div class="3buttons">
+            </div>
+            <div class="row">
+                <div class="three_buttons">
                     <p> <%= link_to "Accept", approve_flat_booking_path(flat, booking),
                     method: :patch,
-                    class: "btn btn-primary-sm" %>
+                    class: "btn btn-primary-sm btn-green" %>
                     <%= link_to "Decline", decline_flat_booking_path(flat, booking),
                     method: :patch,
-                    class: "btn btn-primary-sm" %>
+                    class: "btn btn-primary-sm btn-red" %>
                     <%= link_to "Cancel", cancel_flat_booking_path(flat, booking),
                     method: :patch,
-                    class: "btn btn-primary-sm" %>
-                    </p>
+                    class: "btn btn-primary-sm btn-black" %>
                 </div>
             </p>
             <% end %>
