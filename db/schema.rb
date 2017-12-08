@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20171207143401) do
 
 
@@ -37,9 +38,9 @@ ActiveRecord::Schema.define(version: 20171207143401) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "photo"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "photo"
     t.index ["user_id"], name: "index_flats_on_user_id", using: :btree
   end
 
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(version: 20171207143401) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.string   "photo"
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
