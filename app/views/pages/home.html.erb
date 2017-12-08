@@ -2,17 +2,21 @@
 <script type="text/javascript">
 	$("#button").click(function() {
     $('html, body').animate({
-        scrollTop: $("#myDiv").offset().top - 150 /*(150) is height to leave from top*/
+      scrollTop: $("#myDiv").offset().top - 150 /*(150) is height to leave from top*/
     }, 2000);
-});
+  });
 </script>
 
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 20%), url('https://noticias.spainhouses.net/wp-content/uploads/interior-vistas1.jpg');">
   <div class="banner-content">
     <h1>Book a flat</h1>
     <p>Escape into luxury</p>
-    <!-- <a class="btn btn-primary btn-lg" id="button">Let's go!</a> -->
-    <%= link_to "Let's go", flats_path, class: "btn btn-primary btn-lg" %>
+    <%= form_tag(flats_path, method: :get) do %>
+    <%= text_field_tag :location, params[:location], class: "input-location" %>
+    <%= submit_tag 'Search', name: nil, class: "btn-secondary" %> <br>
+    <br>
+    <%= link_to "Browse", flats_path, class: "btn-primary btn-lg" %>
+    <% end %>
   </div>
 </div>
 
