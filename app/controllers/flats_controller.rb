@@ -3,7 +3,7 @@ class FlatsController < ApplicationController
   def index
     @flats = Flat.all
 
-  @flats = Flat.where.not(latitude: nil, longitude: nil)
+    @flats = Flat.where.not(latitude: nil, longitude: nil)
 
     @markers = Gmaps4rails.build_markers(@flats) do |flat, marker|
       marker.lat flat.latitude
@@ -19,12 +19,13 @@ class FlatsController < ApplicationController
 
   def create
     @flat = Flat.new(flat_strong_params)
-    @flat.owner = User.first
+    @flat.owner = current_user
     @flat.save
     redirect_to flat_path(@flat)
   end
 
   def show
+    @booking = Booking.new
     @flat = Flat.find(params[:id])
     @alert_message = "You are viewing #{@flat.title}"
     @flat_coordinates = { lat: @flat.latitude, lng: @flat.longitude }

@@ -1,8 +1,7 @@
-// Specific CSS for your home-page
 .banner {
   color: white;
   text-align: center;
-  height: 100vh;
+  height: 80vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
@@ -21,4 +20,3 @@
   opacity: 0.6;
   margin-bottom: 30px;
 }
-
