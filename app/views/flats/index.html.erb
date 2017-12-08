@@ -1,51 +1,55 @@
 <div class="container">
-    <div class="text-center">
-      <h1>Select a flat to book</h1>
-      <p>Click on an image to request a booking</p>
-      <p><%= link_to "Post a flat and become a host", new_flat_path(@flat), class: "btn-secondary"%></p>
+  <div class="text-center">
+    <h1>Select a flat to book</h1>
+    <p>Click on an image to request a booking</p>
+    <p><%= link_to "Post a flat and become a host", new_flat_path(@flat), class: "btn-secondary"%></p>
 
-    </div>
   </div>
+</div>
 
 
-<div class="container">
+
+<div class="wrapper" >
   <div class="row">
 
-    <% @flats.each do |flat| %>
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <%= link_to flat_path(flat) do %>
-      <div class="card"
-      style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-      url('<%= cl_image_path flat.photo, height: 300, width: 400, crop: :fill if flat.photo? %>')">
-      <div class="card-category"><%=  flat.price%> </div>
-      <div class="card-description">
-        <h2> <%=  flat.title%></h2>
-        <p> <%= flat.description %></p>
+      <% @flats.each do |flat| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <%= link_to flat_path(flat) do %>
+        <div class="card"
+        style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+        url('<%= cl_image_path flat.photo, height: 300, width: 400, crop: :fill if flat.photo? %>')">
+        <div class="card-category"><%=  flat.price%> </div>
+        <div class="card-description">
+          <h2> <%=  flat.title%></h2>
+          <p> <%= flat.description %></p>
+        </div>
       </div>
+      <% end %>
     </div>
     <% end %>
+
   </div>
-  <% end %>
 
+    <div id="map">
+    <script type="text/javascript">
+    <% content_for(:after_js) do %>
+    <%= javascript_tag do %>
+    var handler = Gmaps.build('Google');
+    handler.buildMap({ internal: { id: 'map' } }, function() {
+      markers = handler.addMarkers(<%= raw @markers.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      if (markers.length == 0) {
+        handler.getMap().setZoom(2);
+      } else if (markers.length == 1) {
+        handler.getMap().setZoom(14);
+      }
+    });
 
-  <div id="map" style="width: 100%; height: 600px;">
+    <% end %>
+    <% end %>
+    </script>
+
+    </div>
 </div>
-<script type="text/javascript">
-  <% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-  var handler = Gmaps.build('Google');
-  handler.buildMap({ internal: { id: 'map' } }, function() {
-    markers = handler.addMarkers(<%= raw @markers.to_json %>);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-    if (markers.length == 0) {
-      handler.getMap().setZoom(2);
-    } else if (markers.length == 1) {
-      handler.getMap().setZoom(14);
-    }
-  });
-  <% end %>
-  <% end %>
-</script>
-
 
