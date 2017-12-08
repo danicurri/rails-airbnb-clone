@@ -50,6 +50,10 @@ class ProfilesController < ApplicationController
       @profile = Profile.find(params[:id])
     end
 
+    def set_user
+      @user = current_user
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
       params.require(:profile).permit(:name, :gender, :birthday, :phone, :location, :bio, :photo, :photo_cache)
